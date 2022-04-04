@@ -8,7 +8,8 @@ const sequelize = new Sequelize(`postgres://${dbConfig.USER}:${dbConfig.PASSWORD
             require: true,
             rejectUnauthorized: false
         }
-    }}
+    }
+}
 )
 
 sequelize.authenticate().then(() => {
@@ -29,7 +30,7 @@ let db = {
 db.User.hasMany(db.Bottle)
 db.Bottle.hasOne(db.BottleType)
 db.Recipe.hasMany(db.BottleType)
-sequelize.sync({force: true}).then(() => {
+sequelize.sync({ force: true }).then(() => {
     console.log('synced!')
 });
 module.exports = db

@@ -4,9 +4,9 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
     console.log('we hit the endpoint!');
-    const { name } = req.body;
+    const { type_name } = req.body;
     const bottleType = {
-        alcoholType: name,
+        type_name: type_name,
     }
 
     BottleType.create(bottleType).then((data) => { res.send(data) });
