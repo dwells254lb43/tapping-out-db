@@ -30,6 +30,7 @@ let db = {
 db.User.hasMany(db.Bottle)
 db.Bottle.hasOne(db.BottleType)
 db.Recipe.hasMany(db.BottleType)
+
 sequelize.sync({ force: true }).then(() => {
     console.log('synced!')
 });

@@ -3,7 +3,7 @@ const User = db.User;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    console.log('we hit the endpoint!');
+    console.log('we hit the users endpoint!');
     const { email, password } = req.body;
     const user = {
         email: email,

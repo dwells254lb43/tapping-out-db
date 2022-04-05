@@ -3,7 +3,7 @@ const Bottle = db.Bottle;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-    console.log('we hit the endpoint!');
+    console.log('we hit the bottle endpoint!');
     const { name } = req.body;
     const bottle = {
         name: name,
