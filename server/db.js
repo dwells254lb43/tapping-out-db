@@ -26,10 +26,12 @@ let db = {
     BottleType: require('./models/bottleTypes')(sequelize, DataTypes)
 }
 
-db.User.hasMany(db.Bottle)
-db.Bottle.hasOne(db.BottleType)
-db.Recipe.hasMany(db.BottleType)
-sequelize.sync({force: true}).then(() => {
+db.User.belongsToMany(db.Bottle, { through: 'user_bottles' })
+db.Bottle.belongsToMany(db.User, { through: 'user_bottles' })
+db.BottleType.hasMany(db.Bottle)
+db.Recipe.belongsToMany(db.BottleType, { through: 'recipe_bottle_type' })
+db.BottleType.belongsToMany(db.Recipe, { through: 'recipe_bottle_type' })
+sequelize.sync().then(() => {
     console.log('synced!')
 });
 module.exports = db

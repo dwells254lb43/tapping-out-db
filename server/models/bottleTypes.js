@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-    const BottleType = sequelize.define('bottle type', {
-        bottle_type_id: {
+    const BottleType = sequelize.define('bottle_types', {
+        id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
